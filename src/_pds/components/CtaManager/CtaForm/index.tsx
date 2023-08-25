@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../../Input';
 import Stack from '../../Stack';
 import Text from '../../Text';
@@ -20,6 +20,11 @@ const CtaForm = ({ page, buttonName, url }: Props) => {
       url: url || '',
     },
   });
+
+  useEffect(() => {
+    setValue('buttonName', buttonName || '');
+    setValue('url', url || '');
+  },[page, buttonName, url, setValue])
 
   return (
     <Stack as="form" direction="column" gap={16}>
