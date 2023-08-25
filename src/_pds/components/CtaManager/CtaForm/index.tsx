@@ -4,8 +4,22 @@ import Input from '../../Input';
 import Stack from '../../Stack';
 import Text from '../../Text';
 import { Props } from './index.types';
+import { useForm } from 'react-hook-form';
 
 const CtaForm = ({ page, buttonName, url }: Props) => {
+  // form 상태
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+    setValue,
+  } = useForm({
+    defaultValues: {
+      buttonName: buttonName || '',
+      url: url || '',
+    },
+  });
+
   return (
     <Stack as="form" direction="column" gap={16}>
       {/* 버튼 이름 */}
