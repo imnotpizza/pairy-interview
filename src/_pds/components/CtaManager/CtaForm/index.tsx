@@ -34,6 +34,26 @@ const CtaForm = ({ page, buttonName, url }: Props) => {
   );
 };
 
+const CtaFormInput = ({ label, placeholder, errText, isError, register }) => {
+  return (
+    <Text variant="md-semibold" color="zinc_600" as="label">
+      {label}
+      <Input
+        paddingY={16}
+        width="100%"
+        textVariant="md-semibold"
+        placeholder={placeholder}
+        {...register}
+      />
+      {isError && (
+        <Text variant="sm-semibold" color="cerise_500" marginTop={4}>
+          {errText}
+        </Text>
+      )}
+    </Text>
+  );
+};
+
 const SubmitButton = styled.button`
   border-color: ${({ theme }) => theme.colors.black};
   border-radius: 999px;
