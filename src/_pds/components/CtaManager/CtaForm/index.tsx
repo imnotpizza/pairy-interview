@@ -5,6 +5,7 @@ import Stack from '../../Stack';
 import Text from '../../Text';
 import { Props } from './index.types';
 import { useForm } from 'react-hook-form';
+import CtaFormInput from './CtaFormInput';
 
 const CtaForm = ({ page, buttonName, url }: Props) => {
   // form 상태
@@ -23,26 +24,31 @@ const CtaForm = ({ page, buttonName, url }: Props) => {
   return (
     <Stack as="form" direction="column" gap={16}>
       {/* 버튼 이름 */}
-      <Text variant="md-semibold" color="zinc_600" as="label">
-        버튼 이름 {page}
-        <Input
-          paddingY={16}
-          width="100%"
-          textVariant="md-semibold"
-          placeholder="버튼 이름 입력"
-        />
-        <Text variant="sm-semibold" color="cerise_500" marginTop={4}>
-          텍스트
-        </Text>
-      </Text>
+      <CtaFormInput
+        label="버튼 이름"
+        placeholder="버튼 이름을 입력해주세요"
+        errText="버튼 이름은 1글자 이상 20글자 이하로 입력해주세요"
+        isError={!!errors.buttonName}
+        register={register('buttonName', {
+          required: '이름은 필수입니다.',
+          minLength: { value: 1, message: '한 글자 이상 입력해주세요.' },
+          maxLength: { value: 20, message: '스무 글자 이하로 입력해주세요.' },
+        })}
+      />
       {/* 버튼에 연결될 링크 */}
-      <Text variant="md-semibold" color="zinc_600" as="label">
-        링크
-        <Input paddingY={16} width="100%" textVariant="md-semibold" placeholder="링크 입력" />
-        <Text variant="sm-semibold" color="cerise_500" marginTop={4}>
-          텍스트
-        </Text>
-      </Text>
+      <CtaFormInput
+        label="버튼 이름"
+        placeholder="버튼 이름을 입력해주세요"
+        errText="버튼 이름은 1글자 이상 20글자 이하로 입력해주세요"
+        isError={!!errors.buttonName}
+        register={register('url', {
+          required: '링크는 필수입니다.',
+          pattern: {
+            value: /^(http|https):\/\/[^ "]+$/,
+            message: '올바른 링크 형식이 아닙니다.',
+          },
+        })}
+      />
       <SubmitButton type="submit">변경사항 저장하기</SubmitButton>
     </Stack>
   );
