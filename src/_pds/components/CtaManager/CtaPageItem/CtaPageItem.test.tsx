@@ -12,23 +12,23 @@ const mockProps = {
 
 describe('선택되었을 때 테스트', () => {
   it('선택되지 않은 경우, is-selected className 없음', () => {
-    render(
+    const { container } = render(
       <TestProviders>
         <CtaPageItem {...mockProps} />
       </TestProviders>,
     );
-    // className이 is-selected인 요소가 없어야 함
-    const elementWithIsSelectedClass = screen.queryAllByTestId('is-selected');
-    expect(elementWithIsSelectedClass.length).toBe(0);
+    const items = container.getElementsByClassName('is-selected');
+    expect(items.length).toBe(0);
   });
   it('item이 선택되었을 때, is-selected className 추가', () => {
-    render(
+    const { container } = render(
       <TestProviders>
         <CtaPageItem {...mockProps} isSelected={true} />
       </TestProviders>,
     );
-    const elementWithIsSelectedClass = screen.queryAllByTestId('is-selected');
-    expect(elementWithIsSelectedClass.length).toBe(1);
+
+    const items = container.getElementsByClassName('is-selected');
+    expect(items.length).toBe(1);
   });
 });
 
