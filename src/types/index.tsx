@@ -1,4 +1,4 @@
-export interface TCtaLinkInfo {
+export interface CtaLinkInfo {
   /**
    * 페이지의 식별 아이디입니다.
    *
@@ -10,10 +10,10 @@ export interface TCtaLinkInfo {
    *
    * @default null
    */
-  detail: TCtaLinkDetail | null;
+  detail: CtaLinkDetail | null;
 }
 
-export interface TCtaLinkDetail {
+export interface CtaLinkDetail {
   /**
    * Cta 버튼의 이름입니다.
    *

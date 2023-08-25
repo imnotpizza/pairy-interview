@@ -1,7 +1,7 @@
-import { TCtaLinkInfo } from "../../../../types";
+import { CtaLinkInfo } from "../../../../types";
 
 export interface Props {
-  item: TCtaLinkInfo;
-  onClickItem: (item: TCtaLinkInfo) => void;
+  item: CtaLinkInfo;
+  onClickItem: (item: CtaLinkInfo) => void;
   isSelected: boolean;
 }
