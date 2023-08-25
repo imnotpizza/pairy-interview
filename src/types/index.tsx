@@ -10,18 +10,20 @@ export interface TCtaLinkInfo {
    *
    * @default null
    */
-  detail: {
-    /**
-     * Cta 버튼의 이름입니다.
-     *
-     * @default ''
-     */
-    buttonName: string;
-    /**
-     * Cta 버튼의 링크 url입니다.
-     *
-     * @default ''
-     */
-    url: string;
-  } | null;
+  detail: TCtaLinkDetail | null;
+}
+
+export interface TCtaLinkDetail {
+  /**
+   * Cta 버튼의 이름입니다.
+   *
+   * @default ''
+   */
+  buttonName: string;
+  /**
+   * Cta 버튼의 링크 url입니다.
+   *
+   * @default ''
+   */
+  url: string;
 }
